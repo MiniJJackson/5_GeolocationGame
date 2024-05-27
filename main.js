@@ -1,13 +1,14 @@
 // Museum locations in Antwerp
 let museums = [
-    { name: "Museum 1", lat: 51.2194, lon: 4.4025 },
-    { name: "Museum 2", lat: 51.2167, lon: 4.4000 },
-    { name: "Museum 3", lat: 51.2130, lon: 4.3971 },
-    { name: "Museum 4", lat: 51.2200, lon: 4.4050 },
-    { name: "Museum 5", lat: 51.2215, lon: 4.4044 },
+    { name: "Plantin-Moretus Museum", lat: 51.2187, lon: 4.3974 },
+    { name: "Museum aan de Stroom (MAS)", lat: 51.2282, lon: 4.4043 },
+    { name: "Rubens House", lat: 51.2156, lon: 4.4105 },
+    { name: "Red Star Line Museum", lat: 51.2295, lon: 4.4049 },
+    { name: "Royal Museum of Fine Arts Antwerp", lat: 51.2123, lon: 4.3956 },
   ];
   
   let visitedMuseums = [];
+  let userMarker = null;
   
   const map = L.map('map').setView([51.2194, 4.4025], 13);
   
@@ -17,8 +18,14 @@ let museums = [
   
   // Add markers to the map for each museum
   museums.forEach((museum, index) => {
-    L.marker([museum.lat, museum.lon]).addTo(map)
-      .bindPopup(`<b>${museum.name}</b>`).openPopup();
+    const marker = L.marker([museum.lat, museum.lon]).addTo(map)
+      .bindPopup(`<b>${museum.name}</b><br><button class="assign-btn" data-museum="${index + 1}">Take a Photo</button>`).openPopup();
+  
+    marker.on('popupopen', () => {
+      document.querySelector(`.assign-btn[data-museum="${index + 1}"]`).addEventListener('click', () => {
+        checkGeolocation(index + 1);
+      });
+    });
   });
   
   // Add event listeners to the upload buttons
@@ -34,6 +41,11 @@ let museums = [
       navigator.geolocation.getCurrentPosition(
         position => {
           const { latitude, longitude } = position.coords;
+          if (userMarker) {
+            userMarker.setLatLng([latitude, longitude]);
+          } else {
+            userMarker = L.marker([latitude, longitude], { icon: L.icon({ iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-red.png', iconSize: [38, 95], iconAnchor: [22, 94], popupAnchor: [-3, -76], shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png', shadowSize: [50, 64], shadowAnchor: [4, 62], }) }).addTo(map);
+          }
           if (isNearMuseum(latitude, longitude, museumIndex)) {
             document.getElementById('photo-input').click();
             document.getElementById('photo-input').onchange = function () {
@@ -79,9 +91,9 @@ let museums = [
     const file = document.getElementById('photo-input').files[0];
     if (file) {
       visitedMuseums.push(museumIndex);
-      document.getElementById('feedback').innerText = `Photo for Museum ${museumIndex} uploaded!`;
+      document.getElementById('feedback').innerText = `Photo for museum ${museumIndex} uploaded successfully!`;
       if (visitedMuseums.length === museums.length) {
-        document.getElementById('feedback').innerText = "Congratulations! You visited all museums!";
+        document.getElementById('feedback').innerText += " Congratulations! You've visited all the museums!";
       }
     }
   }

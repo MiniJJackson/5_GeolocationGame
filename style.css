@@ -3,31 +3,31 @@ body {
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
     margin: 2em;
-  }
+}
   
-  #map {
+#map {
     height: 280px;
     width: 100%;
-  }
+}
   
-  header {
+header {
     text-align: center;
-  }
+}
   
-  header a.link {
+header a.link {
     display: block;
     margin: 1em;
-  }
+}
   
-  a {
+a {
     color: #fff;
-  }
+}
   
-  a:hover {
+a:hover {
     text-decoration: none;
-  }
+}
   
-  a.btn {
+a.btn {
     color: #f8b0b0;
     border: 1px solid #f8b0b0;
     padding: 0.5em;
@@ -38,20 +38,25 @@ body {
     text-align: center;
     font-weight: bold;
     cursor: pointer;
-  }
+}
   
-  a.btn:hover {
+a.btn:hover {
     color: #1d1d1d;
     background-color: #f8b0b0;
-  }
+}
   
-  #feedback {
+#feedback {
     font-weight: bold;
-  }
   
-  section.data {}
-  
-  @media only screen and (min-width: 600px) {
+}
+
+#locate-btn {
+    margin: 1em 0;
+    display: block;
+}
+
+ 
+@media only screen and (min-width: 600px) {
     .buttons {
       display: block;
     }
@@ -67,28 +72,28 @@ body {
       height: 60vw;
       max-height: 70vh;
     }
-  }
+}
   
-  #museum-list {
+#museum-list {
     list-style: none;
     padding: 0;
-  }
+}
   
-  #museum-list li {
+#museum-list li {
     margin: 1em 0;
-  }
+}
   
-  .upload-btn {
+.upload-btn {
     color: #f8b0b0;
     border: 1px solid #f8b0b0;
     padding: 0.5em;
     text-transform: uppercase;
     border-radius: 3px;
     cursor: pointer;
-  }
+}
   
-  .upload-btn:hover {
+.upload-btn:hover {
     color: #1d1d1d;
     background-color: #f8b0b0;
-  }
+}
   
