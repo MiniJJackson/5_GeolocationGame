@@ -4,29 +4,29 @@ body {
     font-family: 'Courier New', Courier, monospace;
     margin: 2em;
 }
-  
+
 #map {
     height: 280px;
     width: 100%;
 }
-  
+
 header {
     text-align: center;
 }
-  
+
 header a.link {
     display: block;
     margin: 1em;
 }
-  
+
 a {
     color: #fff;
 }
-  
+
 a:hover {
     text-decoration: none;
 }
-  
+
 a.btn {
     color: #f8b0b0;
     border: 1px solid #f8b0b0;
@@ -39,50 +39,51 @@ a.btn {
     font-weight: bold;
     cursor: pointer;
 }
-  
+
 a.btn:hover {
     color: #1d1d1d;
     background-color: #f8b0b0;
 }
-  
+
 #feedback {
     font-weight: bold;
-  
 }
 
 #locate-btn {
-    margin: 1em 0;
+    margin: 1em auto;
     display: block;
 }
 
- 
 @media only screen and (min-width: 600px) {
-    .buttons {
-      display: block;
-    }
-  
     header,
     section.map-section {
-      margin-left: auto;
-      margin-right: auto;
-      width: 80%;
+        width: 80%;
+        margin: 0 auto;
     }
-  
+
     #map {
-      height: 60vw;
-      max-height: 70vh;
+        height: 60vw;
+        max-height: 70vh;
+    }
+
+    #museum-list li {
+        margin: 1em 0;
+    }
+
+    .upload-btn {
+        width: 150px; /* Adjust button width for larger screens */
     }
 }
-  
+
 #museum-list {
     list-style: none;
     padding: 0;
 }
-  
+
 #museum-list li {
-    margin: 1em 0;
+    margin: 0.5em 0;
 }
-  
+
 .upload-btn {
     color: #f8b0b0;
     border: 1px solid #f8b0b0;
@@ -91,9 +92,12 @@ a.btn:hover {
     border-radius: 3px;
     cursor: pointer;
 }
-  
+
 .upload-btn:hover {
     color: #1d1d1d;
     background-color: #f8b0b0;
 }
-  
+
+.instructions {
+    text-align: center; /* Center the text inside .instructions */
+}
