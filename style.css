@@ -1,0 +1,24 @@
+/* Additional CSS for the museum game */
+#museum-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #museum-list li {
+    margin: 1em 0;
+  }
+  
+  .upload-btn {
+    color: #55e534;
+    border: 1px solid #55e534;
+    padding: 0.5em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .upload-btn:hover {
+    color: #1d1d1d;
+    background-color: #55e534;
+  }
+  

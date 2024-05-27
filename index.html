@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antwerp Museum Game</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Antwerp Museum Game</h1>
+    <p>Visit the following museums and upload a picture as proof of your visit:</p>
+    <ul id="museum-list">
+      <li>Museum 1 <button class="upload-btn" data-museum="1">Upload Photo</button></li>
+      <li>Museum 2 <button class="upload-btn" data-museum="2">Upload Photo</button></li>
+      <li>Museum 3 <button class="upload-btn" data-museum="3">Upload Photo</button></li>
+      <li>Museum 4 <button class="upload-btn" data-museum="4">Upload Photo</button></li>
+      <li>Museum 5 <button class="upload-btn" data-museum="5">Upload Photo</button></li>
+    </ul>
+  </header>
+  <section class="map-section">
+    <div id="map"></div>
+  </section>
+  <section class="feedback-section">
+    <p id="feedback"></p>
+  </section>
+  <input type="file" id="photo-input" style="display:none" accept="image/*">
+</body>
+</html>
